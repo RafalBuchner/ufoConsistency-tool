@@ -1,6 +1,7 @@
-class TableString(object):
+class TableStringMD(object):
     """
-    Creates ascii string table. In order to use it you should provide
+    Creates ascii string table prepared for MarkDownFormatting.
+    In order to use it you should provide
     it with the list of rows (which are also lists).
 
     Positioning of the table:
@@ -9,16 +10,14 @@ class TableString(object):
     cell in the row, it can
     be precieved as index of the line )
 
-          |    R0 |    R1 |    R2 |    R3 |
-    ----------------------------------------
-       L0 | R0-L0 | R1-L0 | R2-L0 | R3-L0 |
-    ----------------------------------------
-       L1 | R0-L1 | R1-L1 | R2-L1 | R3-L1 |
-    ----------------------------------------
-       L2 | R0-L2 | R1-L2 | R2-L2 | R3-L2 |
-    ----------------------------------------
-       L3 | R0-L3 | R1-L3 | R2-L3 | R3-L3 |
-    ----------------------------------------
+      |    R0 |    R1 |    R2 |    R3 |  add1 |  add2
+-------------------------------------------------------|
+   L0 | R0-L0 | R1-L0 | R2-L0 | R3-L0 |       |
+   L1 | R0-L1 | R1-L1 | R2-L1 | R3-L1 |       |
+   L2 | R0-L2 | R1-L2 | R2-L2 | R3-L2 |       |
+   L3 | R0-L3 | R1-L3 | R2-L3 | R3-L3 |       |
+ add1 |       |       |       |       |       |
+ add2 |       |       |       |       |       |
 
     What's so more you can add description
     of the line and description of the row (as list of strings).
@@ -71,7 +70,7 @@ class TableString(object):
             newTable.append(newRow)
         return max([max (row) for row in newTable])
 
-    def getTableString(self):
+    def getTableStringMD(self):
         """
             returns table as string
         """
@@ -95,21 +94,22 @@ class TableString(object):
                     spaces = (biggestLen - currLen) * " "
                     line += spaces +              " | "
 
-            tableStr += (line+"\n")
-            tableStr += len(line)*"-"+"\n"
+            tableStr += ("|"+line+"\n")
+            if lineIndex == 0:
+                tableStr += "|"+(len(line)-2)*"-"+"|\n"
 
 
         return tableStr
 
-rows = [
-    ["R0-L0","R0-L1","R0-L2","R0-L3"],
-    ["R1-L0","R1-L1","R1-L2","R1-L3"],
-    ["R2-L0","R2-L1","R2-L2","R2-L3"],
-    ["R3-L0","R3-L1","R3-L2","R3-L3"],
-]
-lineInfo = ["L0","L1","L2","L3","add1","add2"]
-rowInfo = ["R0","R1","R2","R3","add1","add2"]
-
-table = TableString([x for x in rows],lineInfo=lineInfo,rowInfo=rowInfo)
-print(table.getTableString())
-print(table.getCellWidth() * 2 * " ", "Text shifted by 2 cells widths")
+# rows = [
+#     ["R0-L0","R0-L1","R0-L2","R0-L3"],
+#     ["R1-L0","R1-L1","R1-L2","R1-L3"],
+#     ["R2-L0","R2-L1","R2-L2","R2-L3"],
+#     ["R3-L0","R3-L1","R3-L2","R3-L3"],
+# ]
+# lineInfo = ["L0","L1","L2","L3","add1","add2"]
+# rowInfo = ["R0","R1","R2","R3","add1","add2"]
+#
+# table = TableStringMD([x for x in rows],lineInfo=lineInfo,rowInfo=rowInfo)
+# print(table.getTableStringMD())
+# print(table.getCellWidth() * 2 * " ", "Text shifted by 2 cells widths")

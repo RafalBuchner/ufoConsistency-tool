@@ -1,9 +1,12 @@
+
 def fatal(expression, string):
     """
         Error for command prompt
     """
     if not expression:  # FATAL ERROR???
-        sys.exit("[FATAL ERROR]//> {}".format(string))
+        from sys import exit
+        exit("<br>>[**FATAL ERROR**]> {}".format(string))
+        # print("<br>>[**FATAL ERROR**]> {}".format(string))
 
 def warning(expression, string, countError=None):
     """
@@ -14,7 +17,7 @@ def warning(expression, string, countError=None):
     """
     if countError != None:
         if not expression:  # WARNING ERROR???
-            print("[WARNING]//> {} > {}".format(string, countError))
+            print("<br>>[**WARNING**]> {} > #{}".format(string, countError))
     else:
         if not expression:  # WARNING ERROR???
-            print("[WARNING]//> {}".format(string))
+            print("<br>>[**WARNING**]> {}".format(string))
