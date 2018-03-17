@@ -1,7 +1,7 @@
 import sys
 import os
-import error
 from fontParts.world import *
+import error
 
 class Options(object):
     """
@@ -9,6 +9,8 @@ class Options(object):
     """
     def __init__(self):
         pass
+
+
 
 
 
@@ -26,7 +28,7 @@ def getFilesFromMainArg(mianArg):
         ufosNames = [mainArg]
         return ufosNames
     else:
-        folder = os.listdir(f"./{mianArg}")
+        folder = os.listdir("./{}".format(mianArg))
         for file in folder:
             if file.split('.')[-1] == "ufo":
                 ufosNames.append(file)
@@ -38,75 +40,72 @@ def getFonts(mianArg):
     fonts = []
     if len(fontNames) > 1:
         for fontName in fontNames:
-            font = OpenFont(f"./{mainArg}/{fontName}")
+            font = OpenFont("./{}/{}".format(mainArg, fontName))
             fonts.append(font)
     else:
-        font = OpenFont(f"./{mainArg}")
+        font = OpenFont("./{}".format(mainArg))
         fonts.append(font)
     return fonts
 
+def getFamilyNames(fonts):
+    """
+        returns names of families that where passed to the script
+    """
+    families = []
 
+    countError = 1
+    for font in fonts:
+        # I don't know if this warning is necessary here (it prints out stuff in data-connected-method):
+        error.warning((font.info.familyName!=None), "Ufo without FAMILY Name", countError=countError)
+        if (font.info.familyName==None): countError += 1
 
+        families.append(font.info.familyName)
 
+    return tuple(set(families))
 
-class FamilyStruct(object):
+def getStyleNames(fonts,familyName):
+    """
+        returns names of styles for given familyName
+    """
+    styleNames = []
 
-    def getFamilyNames(self,fonts):
-        """
-            returns names of families that where passed to the script
-        """
-        families = []
-
-        countError = 1
-        for font in fonts:
+    countError = 1
+    for font in fonts:
+        if font.info.familyName == familyName:
             # I don't know if this warning is necessary here (it prints out stuff in data-connected-method):
-            error.warning((font.info.familyName!=None), "Ufo without FAMILY Name", countError=countError)
+            error.warning((font.info.styleName!=None), "Family contains STYLE without the Name",countError=countError)
             if (font.info.familyName==None): countError += 1
 
-            families.append(font.info.familyName)
+            styleNames.append(font.info.styleName)
+    return styleNames
 
-        return tuple(set(families))
+def printStyleNames(fonts):
+    """
+        prints in the command line lists of styles passed to the script
+    """
+    familyNames = getFamilyNames(fonts)
 
-    def getStyleNames(self,fonts,familyName):
-        """
-            returns names of styles for given familyName
-        """
-        styleNames = []
+    for familyName in familyNames:
+        print("Family Name: {}".format(familyName))
+        print( "------------" )
+        styleNames = getStyleNames(fonts,familyName)
+        for styleName in styleNames:
 
-        countError = 1
-        for font in fonts:
-            if font.info.familyName == familyName:
-                # I don't know if this warning is necessary here (it prints out stuff in data-connected-method):
-                error.warning((font.info.styleName!=None), "Family contains STYLE without the Name",countError=countError)
-                if (font.info.familyName==None): countError += 1
+            print(" Style Name: {}".format(styleName))
+        print("\n****\n")
 
-                styleNames.append(font.info.styleName)
-        return styleNames
+def isStyleObliqueOrItalic(font):
+    if font.info.italicAngle != 0 or None: # Maybe only None?
+        return True
+    else:
+        return False
 
-    def printStyleNames(self,fonts):
-        """
-            prints in the command line lists of styles passed to the script
-        """
-        familyNames = self.getFamilyNames(fonts)
 
-        for familyName in familyNames:
-            print(f"Family Name: {familyName}")
-            print( "------------" )
-            styleNames = self.getStyleNames(fonts,familyName)
-            for styleName in styleNames:
 
-                print(f" Style Name: {styleName}")
-            print("\n****\n")
-
-    def isStyleObliqueOrItalic(self,font):
-        if font.info.italicAngle != 0 or None: # Maybe only None?
-            return True
-        else:
-            return False
 
 def main():
     fonts = getFonts(mainArg)
-    FamilyStruct().printStyleNames(fonts)
+    printStyleNames(fonts)
 
 if __name__ == "__main__":
     commands = (sys.argv)[1:-1]

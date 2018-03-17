@@ -3,7 +3,7 @@ def fatal(expression, string):
         Error for command prompt
     """
     if not expression:  # FATAL ERROR???
-        sys.exit(f"[FATAL ERROR]//> {string}")
+        sys.exit("[FATAL ERROR]//> {}".format(string))
 
 def warning(expression, string, countError=None):
     """
@@ -14,7 +14,7 @@ def warning(expression, string, countError=None):
     """
     if countError != None:
         if not expression:  # WARNING ERROR???
-            print(f"[WARNING]//> {string} > {countError}")
+            print("[WARNING]//> {} > {}".format(string, countError))
     else:
         if not expression:  # WARNING ERROR???
-            print(f"[WARNING]//> {string}")
+            print("[WARNING]//> {}".format(string))
