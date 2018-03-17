@@ -1,3 +1,4 @@
+from misc.Output import output
 
 def fatal(expression, string):
     """
@@ -5,8 +6,8 @@ def fatal(expression, string):
     """
     if not expression:  # FATAL ERROR???
         from sys import exit
-        exit("<br>>[**FATAL ERROR**]> {}".format(string))
-        # print("<br>>[**FATAL ERROR**]> {}".format(string))
+        exit("\n [**FATAL ERROR**]> {}\n".format(string))
+        # output("\n [**FATAL ERROR**]> {}\n".format(string))
 
 def warning(expression, string, countError=None):
     """
@@ -17,7 +18,7 @@ def warning(expression, string, countError=None):
     """
     if countError != None:
         if not expression:  # WARNING ERROR???
-            print("<br>>[**WARNING**]> {} > #{}".format(string, countError))
+            output("\n [**WARNING**]> {} > #{}\n".format(string, countError))
     else:
         if not expression:  # WARNING ERROR???
-            print("<br>>[**WARNING**]> {}".format(string))
+            output("\n [**WARNING**]> {}\n".format(string))

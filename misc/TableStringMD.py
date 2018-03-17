@@ -100,6 +100,9 @@ class TableStringMD(object):
 
 
         return tableStr
+    def getTableListMD(self):
+       table_str = self.getTableStringMD()
+       return table_str.split("\n")
 
 # rows = [
 #     ["R0-L0","R0-L1","R0-L2","R0-L3"],
