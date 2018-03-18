@@ -13,6 +13,10 @@ In terminal go to the UFO Consistency-tool directory, run:
 
 `python UFO-Consistency-tool.py -v`
 
+To see availble commands run:
+
+`python UFO-Consistency-tool.py -h`
+
 ### Test one file:
 
 If you want to test one UFO file, then you can pass it as an argument to the script:
