@@ -24,6 +24,7 @@ class ParentTest(object):
 
     @staticmethod
     def _warning(txt, condition, MAIN_STRING, font, countError):
+        # TO CHANGE!!!
         MAIN_STRING = error.warning(condition,
                                     txt, MAIN_STRING=MAIN_STRING, countError=countError)
         MAIN_STRING += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
@@ -33,6 +34,7 @@ class ParentTest(object):
 
     @staticmethod
     def _consider(txt, font,  MAIN_STRING):
+        # TO CHANGE!!!
         MAIN_STRING = error.consider(txt, MAIN_STRING)
         MAIN_STRING += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
             font.path.split("/")[-1])
@@ -71,15 +73,19 @@ class ParentTest(object):
 class SingleFontTest(object):
     def __init__(self, MAIN_STRING, font):
         self.font = font
+        self.familyName = self.font.info.familyName
 
     def getFamilyName(self):
-        return self.font.info.familyName
+        return self.familyName
 
     def getStyleName(self):
-        return self.font.info.styleName
+        return self.familyName
 
     def familyNameTest(self):
-        pass
+        """
+            nameID 1 - test if the name is set to None
+        """
+        error.warning(self.familyName != None,"**FamilyNameERROR**(nameID 1): Ufo without **Family Name**",font)
 
 
 

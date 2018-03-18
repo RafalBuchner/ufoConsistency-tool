@@ -9,7 +9,7 @@ def fatal(expression, string):
         # exit("\n [**FATAL ERROR**]> {}\n\n".format(string))
         output("\n [**FATAL ERROR**]> {}\n".format(string))
 
-def consider(string, MAIN_STRING):
+def consider(string, font=None):
     """
         Error for command prompt
         Count=If count is needed, then you have to change countError to something else than None:
@@ -17,22 +17,29 @@ def consider(string, MAIN_STRING):
         After the warning you have to implement the incrementation of this variable
     """
 
-    MAIN_STRING += "\n [**CONSIDER**]> {}\n\n".format(string)
-    return MAIN_STRING
+    txt = "\n [**CONSIDER**]> {}\n\n".format(string)
+
+    if font:
+        txt += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
+            font.path.split("/")[-1])
+    return txt
 
 
 
-def warning(expression, string, MAIN_STRING, countError=None):
+def warning(expression, string, font=None):
     """
         Error for command prompt
         Count=If count is needed, then you have to change countError to something else than None:
         assign countError to variable put before loop, which equals 1.
         After the warning you have to implement the incrementation of this variable
     """
-    if countError != None:
-        if not expression:  # WARNING ERROR???
-            MAIN_STRING += "\n [**WARNING**]> {} > #{}\n\n".format(string, countError)
-    else:
-        if not expression:  # WARNING ERROR???
-            MAIN_STRING += "\n [**WARNING**]> {}\n\n".format(string)
-    return MAIN_STRING
+    if not expression:  # WARNING ERROR???
+        txt = "\n [**WARNING**]> {}\n\n".format(string)
+
+    if not expression:  # WARNING ERROR???
+        txt = "\n [**WARNING**]> {}\n\n".format(string)
+
+    if font:
+        txt += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
+            font.path.split("/")[-1])
+    return txt
