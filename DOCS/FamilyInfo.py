@@ -312,7 +312,9 @@ class FolderTest(object):
         txt += "\n> - {} - number of different style names\n".format(
             len(styleNames))
 
-        txt += "\n# Multiple fonts tests:\n TODO: \n - font names consistency across family\n - style names consisency across family\n - glyph names consistency across family\n - kerning pairs names consisency across family\n - kerning pairs names consisency across family\n"
+        if len(fonts)>1:
+            txt += "\n# Multiple fonts tests:\n TODO: \n - font names consistency across family\n - style names consisency across family\n - glyph names consistency across family\n - kerning pairs names consisency across family\n - kerning pairs names consisency across family\n"
+
         txt += "\n### Structure:\n"
         txt += self.printStyleNamesTable()
         return txt
