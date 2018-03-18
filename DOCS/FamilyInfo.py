@@ -9,43 +9,20 @@ import misc.letterMachine as lettMachine
 import FUNC.error as error
 import time  # Can I do it in different way? On lower level of the implementation?
 
+class mainTestLoop(object):
+    def __init__(self, *methods):
+        self._testLoop(*methods)
 
-def getFamilyNames(fonts):
-    """
-        returns names of families that where passed to the script
-    """
-    families = []
+    def _testLoop(self, *methods):
+        for font in self.fonts:
+            for method in methods:
+                method()
 
-    countError = 1
-    for font in fonts:
+class ParentTest(object):
+    def __init__(self, fonts):
+        self.fonts = fonts
 
-        families.append(font.info.familyName)
-
-    return list(set(families))
-
-
-def getStyleNames(fonts, familyName):
-    """
-        returns names of styles for given familyName
-    """
-    styleNames = []
-
-    countError = 1
-    for font in fonts:
-        if font.info.familyName == familyName:
-            if (font.info.familyName == None):
-                countError += 1
-
-            styleNames.append(font.info.styleName)
-    return styleNames
-
-
-def nameChecker(fonts, MAIN_STRING):
-    """
-        Checks if opened fonts has none name as
-        familyName, styleName
-        TODO: check OTF spects for naming, and add to it
-    """
+    @staticmethod
     def _warning(txt, condition, MAIN_STRING, font, countError):
         MAIN_STRING = error.warning(condition,
                                     txt, MAIN_STRING=MAIN_STRING, countError=countError)
@@ -54,13 +31,74 @@ def nameChecker(fonts, MAIN_STRING):
 
         return MAIN_STRING
 
+    @staticmethod
     def _consider(txt, font,  MAIN_STRING):
         MAIN_STRING = error.consider(txt, MAIN_STRING)
         MAIN_STRING += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
             font.path.split("/")[-1])
         return MAIN_STRING
 
-    MAIN_STRING += "## UFO-family-tool\n------------------\n# **Name Check**\n"
+    def getFamilyNames(self):
+        """
+        returns names of families that where passed to the script
+        """
+        families = []
+
+        countError = 1
+        for font in self.fonts:
+
+            families.append(font.info.familyName)
+
+            return list(set(families))
+
+    def getStyleNames(self, familyName):
+        """
+            returns names of styles for given familyName
+        """
+        styleNames = []
+
+        countError = 1
+
+        for font in self.fonts:
+            if font.info.familyName == familyName:
+                if (font.info.familyName == None):
+                    countError += 1
+
+                styleNames.append(font.info.styleName)
+        return styleNames
+
+
+class SingleFontTest(object):
+    def __init__(self, MAIN_STRING, font):
+        self.font = font
+
+    def getFamilyName(self):
+        return self.font.info.familyName
+
+    def getStyleName(self):
+        return self.font.info.styleName
+
+    def familyNameTest(self):
+        pass
+
+
+
+class FamilyTest(ParentTest):
+    def __init__(self):
+        super(FamilyTest, self).__init__(MAIN_STRING, fonts)
+
+
+
+
+def nameChecker(fonts, MAIN_STRING):
+    """
+        Checks if opened fonts has none name as
+        familyName, styleName
+        TODO: check OTF spects for naming, and add to it
+    """
+
+
+
     MAIN_STRING += "```\n"
     countErrorFamilyName = 0
     countErrorStyleName = 0

@@ -5,9 +5,9 @@ def fatal(expression, string):
         Error for command prompt
     """
     if not expression:  # FATAL ERROR???
-        from sys import exit
-        exit("\n [**FATAL ERROR**]> {}\n\n".format(string))
-        # output("\n [**FATAL ERROR**]> {}\n".format(string))
+        # from sys import exit
+        # exit("\n [**FATAL ERROR**]> {}\n\n".format(string))
+        output("\n [**FATAL ERROR**]> {}\n".format(string))
 
 def consider(string, MAIN_STRING):
     """
