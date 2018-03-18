@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import time
+
 def output(str):
-    print(str)
-    time.sleep(.03)
+    print(str.encode('utf-8'))
+    time.sleep(.02)
 
 def execute_MAIN_STRING(MAIN_STRING):
     lines = MAIN_STRING.split("\n")
@@ -13,4 +14,3 @@ def execute_MAIN_STRING(MAIN_STRING):
             if line == lines[i+1] and line == "```":
                 continue
             output(line)
-            # print(line)
