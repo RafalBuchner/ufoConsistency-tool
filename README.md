@@ -37,6 +37,7 @@ TODO:
      - Divide `DOCS/FamilyInfo.py` into separate files, so tests and application’s operations won’t be in one python file
      - Learn more about packages :)
  - DOCSRINGS
+ - Work on language in the strings
 
 
 For now:
