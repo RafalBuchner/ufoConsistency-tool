@@ -4,6 +4,8 @@ It prints data in MarkDown syntax which provide clear, easy to read. edit and sh
 It check the different information in two stages:
 1. it runs “Single font tests”, to print out any problems that occurs in single ufo
 2. after it, if user fed 'UFO Consistency-tool' script with more than one ufo file it runs “Multiple font tests”, which compares different data between given UFO files
+
+*This project is in very early stages of development, so don't get your hopes up*
 ---
 ## Usage:
 Check if it works
