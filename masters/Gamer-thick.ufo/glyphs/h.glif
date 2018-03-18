@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="h" format="1">
+  <advance width="583"/>
+  <unicode hex="0068"/>
+  <outline>
+    <contour>
+      <point x="47" y="0" type="line"/>
+      <point x="215" y="0" type="line"/>
+      <point x="215" y="705" type="line"/>
+      <point x="-18" y="705" type="line"/>
+      <point x="-18" y="554" type="line"/>
+      <point x="81" y="554" type="line"/>
+      <point x="47" y="583" type="line"/>
+    </contour>
+    <contour>
+      <point x="519" y="0" type="line"/>
+      <point x="519" y="332" type="line" smooth="yes"/>
+      <point x="519" y="414"/>
+      <point x="510" y="455"/>
+      <point x="486" y="478" type="curve" smooth="yes"/>
+      <point x="462" y="504"/>
+      <point x="406" y="522"/>
+      <point x="357" y="522" type="curve" smooth="yes" name="SP"/>
+      <point x="257" y="522"/>
+      <point x="221" y="483"/>
+      <point x="210" y="372" type="curve"/>
+      <point x="210" y="361" type="line"/>
+      <point x="227" y="365"/>
+      <point x="236" y="359"/>
+      <point x="255" y="359" type="curve" smooth="yes"/>
+      <point x="272" y="359"/>
+      <point x="278" y="356"/>
+      <point x="295" y="356" type="curve" smooth="yes" name="SP"/>
+      <point x="324" y="356"/>
+      <point x="336" y="353"/>
+      <point x="344" y="345" type="curve" smooth="yes"/>
+      <point x="349" y="340"/>
+      <point x="351" y="338"/>
+      <point x="351" y="333" type="curve" smooth="yes"/>
+      <point x="351" y="0" type="line"/>
+    </contour>
+  </outline>
+</glyph>

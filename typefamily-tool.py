@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+from misc.Output import execute_MAIN_STRING
 import os
 import sys
 from FUNC import error
@@ -57,8 +57,12 @@ def getFonts(mianArg):
 
 
 def main():
+    MAIN_STRING = ""
     fonts = getFonts(mainArg)
-    nameChecker(fonts)
+    MAIN_STRING = nameChecker(fonts,MAIN_STRING)
+
+
+    execute_MAIN_STRING(MAIN_STRING)
     # printStyleNames(fonts)
 
 
