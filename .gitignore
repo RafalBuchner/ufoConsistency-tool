@@ -2,5 +2,6 @@ diff-masters/
 one-masters/
 masters/
 test.py
+test.md
 *.pyc
-*.md
+.textClipping
