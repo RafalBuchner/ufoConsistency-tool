@@ -1,5 +1,6 @@
 diff-masters/
 one-masters/
 masters/
+test.py
 *.pyc
 *.md
