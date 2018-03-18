@@ -10,7 +10,7 @@ author: Rafał Buchner
 date: 03/2018
 licence type: MIT
 ```
-[link](https://github.com/RafalBuchner/ufoConsistency-tool)
+[github link](https://github.com/RafalBuchner/ufoConsistency-tool)
 #### Ufo-test-tool: Name Test
 ---
 # Single font tests:
@@ -85,14 +85,14 @@ licence type: MIT
  - kerning pairs names consisency across family
 
 ### Structure:
-|        FAMILY NAME: |               Ariiba |                Gamer | Source Sans Variable |               ZigZag |          Source Code |                 None | 
+|        FAMILY NAME: | Source Sans Variable |                Gamer |          Source Code |               ZigZag |               Ariiba |                 None | 
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|            style #0 |              Regular |                 thin |               Italic |             bold_con |         Black Italic |                 None | 
-|            style #1 |                      |                  400 |                Roman |              reg_con |    ExtraLight Italic |                      | 
-|            style #2 |                      |                thick |                Black |              bold_ex |              Regular |                      | 
-|            style #3 |                      |               medium |         Black Italic |               reg_ex |               Italic |                      | 
-|            style #4 |                      |                  200 |                      |                      |           ExtraLight |                      | 
-|            style #5 |                      |                  800 |                      |                      |                Black |                      | 
+|            style #0 |               Italic |                 thin |         Black Italic |             bold_con |              Regular |                 None | 
+|            style #1 |                Roman |                  400 |    ExtraLight Italic |              reg_con |                      |                      | 
+|            style #2 |                Black |                thick |              Regular |              bold_ex |                      |                      | 
+|            style #3 |         Black Italic |               medium |               Italic |               reg_ex |                      |                      | 
+|            style #4 |                      |                  200 |           ExtraLight |                      |                      |                      | 
+|            style #5 |                      |                  800 |                Black |                      |                      |                      | 
 
 # UFO Consistency Tool HELP
 ---
