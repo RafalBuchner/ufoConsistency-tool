@@ -1,10 +1,22 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 from misc.Output import execute_MAIN_STRING
 import os
 import sys
 from FUNC import error
-from fontParts.world import *
+
 from DOCS.FamilyInfo import *
+
+
+# class Options(object):
+#     ###IMPOLEMENT THIS!
+#     """
+#         impolements options to the script
+#     """
+#
+#     def __init__(self):
+#         pass
+
 
 def getFilesFromMainArg(mianArg):
     """
@@ -22,13 +34,12 @@ def getFilesFromMainArg(mianArg):
     else:
         error.fatal((os.path.exists(mainArg)),
                     "No such file or directory: '{}'".format(mainArg))
-        folder = os.listdir(mainArg)
+        folder = os.listdir("{}".format(mianArg))
         for file in folder:
             if file.split('.')[-1] == "ufo":
                 ufosNames.append(file)
 
         return ufosNames
-
 
 def getFonts(mianArg):
     fontNames = getFilesFromMainArg(mainArg)
@@ -42,19 +53,21 @@ def getFonts(mianArg):
         fonts.append(font)
     return fonts
 
+
+
 def main():
-    MAIN_STRING = ""
-    fonts = getFonts(mainArg)
-    MAIN_STRING = nameChecker(fonts,MAIN_STRING)
-
-
+    txt = ""
+    ###TESTS:
+    txt += u"_______TEST_______\n"
+    setup = Setup(commands, mainArg)
+    txt += setup.getTxt()
+    MAIN_STRING = txt
     execute_MAIN_STRING(MAIN_STRING)
-    # printStyleNames(fonts)
 
 
 if __name__ == "__main__":
     import sys
     commands = (sys.argv)[1:-1]
     mainArg = (sys.argv)[-1]
-    # mainArg = "master"
+    # mainArg = "diff-masters"
     main()

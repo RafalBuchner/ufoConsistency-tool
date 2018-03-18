@@ -1,74 +1,112 @@
-## UFO-family-tool
-------------------
-# **Name Check**
+
+ [**FATAL ERROR**]> `command like:'-h' doesn't exist`
+
+_______TEST_______
+
 ```
- - font `#1` from total `12`
+version: 0.001
+name: UFO Consistency Tool
+author: Rafał Buchner
+date: 03/2018
+licence type: MIT
+```
+[link](https://github.com/RafalBuchner/ufoConsistency-tool)
+#### Ufo-test-tool: Name Test
+---
+# Single font tests:
+```
+ - font `#1` from total `22`
+ - font `#2` from total `22`
+ - font `#3` from total `22`
+ - font `#4` from total `22`
 
- [**WARNING**]> PostscriptFontNameERROR: UFO has **Postscript Font Name** set to None > #1
+ [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'SourceSans_Black'* ( No Separation or separated without the dashes)
 
-\\\\\\\\ *FILE NAME: a_bold_cond.ufo*
- - font `#2` from total `12`
- - font `#3` from total `12`
- - font `#4` from total `12`
- - font `#5` from total `12`
+\\\\\\\\ *FILE NAME: SourceSans_Black.ufo*
 
- [**WARNING**]> PostscriptFontNameERROR: UFO has **Postscript Font Name** set to None > #2
-
-\\\\\\\\ *FILE NAME: Gamer-medium.ufo*
- - font `#6` from total `12`
- - font `#7` from total `12`
-
- [**WARNING**]> PostscriptFontNameERROR: UFO has **Postscript Font Name** set to None > #3
-
-\\\\\\\\ *FILE NAME: a_reg_cond.ufo*
- - font `#8` from total `12`
- - font `#9` from total `12`
-
- [**WARNING**]> Ufo without **FamilyNameERROR: Family Name** > #1
-
-\\\\\\\\ *FILE NAME: Untitled copy.ufo*
-
- [**WARNING**]> StyleNameERROR: Family *'None'* contains **Style without the Name** > #1
-
-\\\\\\\\ *FILE NAME: Untitled copy.ufo*
-
- [**WARNING**]> PostscriptFontNameERROR: UFO has **Postscript Font Name** set to None > #4
-
-\\\\\\\\ *FILE NAME: Untitled copy.ufo*
- - font `#10` from total `12`
- - font `#11` from total `12`
- - font `#12` from total `12`
-
- [**CONSIDER**]> PostscriptFontNameERROR: could be a wrong **Postscript Font Name** *'Ariļas~ń'* ( No Separation or separated without the dashes). 
             Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
+ - font `#5` from total `22`
+ - font `#6` from total `22`
+ - font `#7` from total `22`
+ - font `#8` from total `22`
+ - font `#9` from total `22`
+ - font `#10` from total `22`
+ - font `#11` from total `22`
+ - font `#12` from total `22`
+ - font `#13` from total `22`
+ - font `#14` from total `22`
+ - font `#15` from total `22`
+ - font `#16` from total `22`
+
+ [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'SourceCode_ExtraLight'* ( No Separation or separated without the dashes)
+
+\\\\\\\\ *FILE NAME: SourceCode_ExtraLight.ufo*
+
+            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
+ - font `#17` from total `22`
+ - font `#18` from total `22`
+
+ [**WARNING**]> **FamilyNameERROR** > nameID 1: Ufo without Family Name
+
+\\\\\\\\ *FILE NAME: Untitled copy.ufo*
+
+ [**WARNING**]> **StyleNameERROR** > nameID 1: Ufo without Style Name (if absent then Name ID 2 () is considered to be the typographic style name)
+
+\\\\\\\\ *FILE NAME: Untitled copy.ufo*
+ - font `#19` from total `22`
+ - font `#20` from total `22`
+ - font `#21` from total `22`
+
+ [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'Ariļas~ń'* ( No Separation or separated without the dashes)
 
 \\\\\\\\ *FILE NAME: Untitled.ufo*
 
- [**WARNING**]> PostscriptFontNameERROR: UFO has wrong **Postscript Font Name** *'Ariļas~ń'* ( non ASCII character - ļ) > #5
+            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
+ - font `#22` from total `22`
 
-\\\\\\\\ *FILE NAME: Untitled.ufo*
+ [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'SourceCode_Black'* ( No Separation or separated without the dashes)
 
- [**WARNING**]> PostscriptFontNameERROR: UFO has wrong **Postscript Font Name** *'Ariļas~ń'* ( non ASCII character - ń) > #6
+\\\\\\\\ *FILE NAME: SourceCode_Black.ufo*
 
-\\\\\\\\ *FILE NAME: Untitled.ufo*
+            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
 
 ## Summary
 
-> - 4 - number of different family names
+> - 6 - number of different family names
 
-> - 1 - number of Family Name errors
+> - 22 - number of different style names
 
-> - 1 - number of Style Name errors
-
-> - 6 - number of Postscript Name errors
+# Multiple fonts tests:
+ TODO: 
+ - font names consistency across family
+ - style names consisency across family
+ - glyph names consistency across family
+ - kerning pairs names consisency across family
+ - kerning pairs names consisency across family
 
 ### Structure:
-|         |   ZigZag |    Gamer |   Ariiba |     None | 
-|-----------------------------------------------------|
-|style #0 | bold_con |     thin |  Regular |     None | 
-|style #1 |  reg_con |      400 |          |          | 
-|style #2 |  bold_ex |    thick |          |          | 
-|style #3 |   reg_ex |   medium |          |          | 
-|style #4 |          |      200 |          |          | 
-|style #5 |          |      800 |          |          | 
+|        FAMILY NAME: |               Ariiba |                Gamer | Source Sans Variable |               ZigZag |          Source Code |                 None | 
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|            style #0 |              Regular |                 thin |               Italic |             bold_con |         Black Italic |                 None | 
+|            style #1 |                      |                  400 |                Roman |              reg_con |    ExtraLight Italic |                      | 
+|            style #2 |                      |                thick |                Black |              bold_ex |              Regular |                      | 
+|            style #3 |                      |               medium |         Black Italic |               reg_ex |               Italic |                      | 
+|            style #4 |                      |                  200 |                      |                      |           ExtraLight |                      | 
+|            style #5 |                      |                  800 |                      |                      |                Black |                      | 
 
+# UFO Consistency Tool HELP
+---
+
+`-hmd` - Help formated for MarkDown output.
+`-h`   - Help formated for terminal output.
+`-v`   - Prints out version number and other information about UFO Consistency Tool.
+`-n`   - Name Test, that prints out the analize of naming in given UFO files.
+
+# UFO Consistency Tool HELP
+---
+|                                                                    command |                                                                 description | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                                                     `-hmd` |                                          Help formated for MarkDown output. | 
+|                                                                       `-h` |                                          Help formated for terminal output. | 
+|                                                                       `-v` | Prints out version number and other information about UFO Consistency Tool. | 
+|                                                                         -n |        Name Test, that prints out the analize of naming in given UFO files. | 

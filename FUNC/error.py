@@ -1,4 +1,4 @@
-from misc.Output import output
+# -*- coding: utf-8 -*-
 
 def fatal(expression, string):
     """
@@ -7,7 +7,7 @@ def fatal(expression, string):
     if not expression:  # FATAL ERROR???
         # from sys import exit
         # exit("\n [**FATAL ERROR**]> {}\n\n".format(string))
-        output("\n [**FATAL ERROR**]> {}\n".format(string))
+        print(u"\n [**FATAL ERROR**]> {}\n".format(string))
 
 def consider(string, font=None):
     """
@@ -17,10 +17,10 @@ def consider(string, font=None):
         After the warning you have to implement the incrementation of this variable
     """
 
-    txt = "\n [**CONSIDER**]> {}\n\n".format(string)
+    txt = u"\n [**CONSIDER**]> {}\n\n".format(string)
 
     if font:
-        txt += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
+        txt += u"\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
             font.path.split("/")[-1])
     return txt
 
@@ -33,13 +33,13 @@ def warning(expression, string, font=None):
         assign countError to variable put before loop, which equals 1.
         After the warning you have to implement the incrementation of this variable
     """
-    if not expression:  # WARNING ERROR???
-        txt = "\n [**WARNING**]> {}\n\n".format(string)
+
+    txt = ""
 
     if not expression:  # WARNING ERROR???
-        txt = "\n [**WARNING**]> {}\n\n".format(string)
+        txt = u"\n [**WARNING**]> {}\n\n".format(string)
 
-    if font:
-        txt += "\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
-            font.path.split("/")[-1])
+        if font != None:
+            txt += u"\\\\\\\\\\\\\\\ *FILE NAME: {}*\n".format(
+                font.path.split("/")[-1])
     return txt
