@@ -1,83 +1,36 @@
-_______TEST_______
-#### Ufo-test-tool: Name Test
----
-# Single font tests:
-```
- - font `#1` from total `22`
- - font `#2` from total `22`
- - font `#3` from total `22`
- - font `#4` from total `22`
+Number of glyphs in every font|                         Family Name |             Source Code Black Italic |        Source Code ExtraLight Italic |                  Source Code Regular |                   Source Code Italic |               Source Code ExtraLight |                    Source Code Black |                                Error | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                       Glyphs Number |                                 1288 |                                 1288 |                                  107 |                                   55 |                                 1585 |                                 1585 | *NOT EQUAL NUMBER ACROSS THE FAMILY* | 
 
- [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'SourceSans_Black'* ( No Separation or separated without the dashes)
+*CHARACTERSET DIFFERENCES:*
 
-\\\\\\\\ *FILE NAME: SourceSans_Black.ufo*
+*!!! here you have to find the system to write the difference berween charactersets*
 
-            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
- - font `#5` from total `22`
- - font `#6` from total `22`
- - font `#7` from total `22`
- - font `#8` from total `22`
- - font `#9` from total `22`
- - font `#10` from total `22`
- - font `#11` from total `22`
- - font `#12` from total `22`
- - font `#13` from total `22`
- - font `#14` from total `22`
- - font `#15` from total `22`
- - font `#16` from total `22`
+|   Family Name | Ariiba Regular | 
+|--------------------------------|
+| Glyphs Number |             93 | 
 
- [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'SourceCode_ExtraLight'* ( No Separation or separated without the dashes)
+|                         Family Name |          Source Sans Variable Italic |           Source Sans Variable Roman |           Source Sans Variable Black |    Source Sans Variable Black Italic |                                Error | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                       Glyphs Number |                                  857 |                                 1942 |                                 1942 |                                  857 | *NOT EQUAL NUMBER ACROSS THE FAMILY* | 
 
-\\\\\\\\ *FILE NAME: SourceCode_ExtraLight.ufo*
+*CHARACTERSET DIFFERENCES:*
 
-            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
- - font `#17` from total `22`
- - font `#18` from total `22`
+*!!! here you have to find the system to write the difference berween charactersets*
 
- [**WARNING**]> **FamilyNameERROR** > nameID 1: Ufo without Family Name
+|                         Family Name |                      ZigZag bold_con |                       ZigZag reg_con |                       ZigZag bold_ex |                        ZigZag reg_ex |                                Error | 
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                       Glyphs Number |                                    1 |                                    2 |                                    1 |                                    2 | *NOT EQUAL NUMBER ACROSS THE FAMILY* | 
 
-\\\\\\\\ *FILE NAME: Untitled copy.ufo*
+*CHARACTERSET DIFFERENCES:*
 
- [**WARNING**]> **StyleNameERROR** > nameID 1: Ufo without Style Name (if absent then Name ID 2 () is considered to be the typographic style name)
+*!!! here you have to find the system to write the difference berween charactersets*
 
-\\\\\\\\ *FILE NAME: Untitled copy.ufo*
- - font `#19` from total `22`
- - font `#20` from total `22`
- - font `#21` from total `22`
+|           Family Name | FAMILY_NONE STYLE_NONE | 
+|------------------------------------------------|
+|         Glyphs Number |                     93 | 
 
- [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'Ariļas~ń'* ( No Separation or separated without the dashes)
+|  Family Name |    Gamer thin |     Gamer 400 |   Gamer thick |  Gamer medium |     Gamer 200 |     Gamer 800 | 
+|--------------------------------------------------------------------------------------------------------------|
+|Glyphs Number |            23 |            23 |            23 |            23 |            23 |            23 | 
 
-\\\\\\\\ *FILE NAME: Untitled.ufo*
-
-            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
- - font `#22` from total `22`
-
- [**CONSIDER**]> **PostscriptFontNameERROR**: could be a wrong **Postscript Font Name** *'SourceCode_Black'* ( No Separation or separated without the dashes)
-
-\\\\\\\\ *FILE NAME: SourceCode_Black.ufo*
-
-            Common practice: FamilyName-StyleName | for italic: FamilyName-StyleNameItalic
-
-## Summary
-
-> - 6 - number of different family names
-
-> - 22 - number of different style names
-
-# Multiple fonts tests:
- TODO:
- - font names consistency across family
- - style names consisency across family
- - glyph names consistency across family
- - kerning pairs names consisency across family
- - kerning pairs names consisency across family
-
-### Structure:
-|        FAMILY NAME: |          Source Code |               Ariiba | Source Sans Variable |               ZigZag |                 None |                Gamer |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|            style #0 |         Black Italic |              Regular |               Italic |             bold_con |                 None |                 thin |
-|            style #1 |    ExtraLight Italic |                      |                Roman |              reg_con |                      |                  400 |
-|            style #2 |              Regular |                      |                Black |              bold_ex |                      |                thick |
-|            style #3 |               Italic |                      |         Black Italic |               reg_ex |                      |               medium |
-|            style #4 |           ExtraLight |                      |                      |                      |                      |                  200 |
-|            style #5 |                Black |                      |                      |                      |                      |                  800 |

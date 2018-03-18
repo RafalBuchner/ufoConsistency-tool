@@ -16,6 +16,7 @@ from misc.Output import output
 import misc.letterMachine as lettMachine
 import FUNC.error as error
 import time  # Can I do it in different way? On lower level of the implementation?
+import misc.logic_func as logic
 
 class About(object):
     def __init__(self):
@@ -51,8 +52,14 @@ self.url
         # lineInfo = ["style #{}".format(i) for i in range(len(max(rows, key=lambda coll: len(coll))))]
         rowInfo = ['command','description']
         rows = [
-        ['`-hmd`','`-h`','`-v`','-n'],
-        ['Help formated for MarkDown output.', 'Help formated for terminal output.','Prints out version number and other information about {}.'.format(self.name),'Name Test, that prints out the analize of naming in given UFO files.']
+        ['`-hmd`','`-h`','`-v`','`-n`','`-dev`'],
+            [
+                'Help formated for MarkDown output.',
+                'Help formated for terminal output.',
+                'Prints out version number and other information about {}.'.format(self.name),
+                'Name Test, that prints out the analize of naming in given UFO files.',
+                'Developer Test (stuff for experimenting within package) ### add more info later.'
+            ]
         ]
 
         table = TableStringMD([x for x in rows], rowInfo=rowInfo)
@@ -68,11 +75,15 @@ self.url
 `-h`   - Help formated for terminal output.
 `-v`   - Prints out version number and other information about {}.
 `-n`   - Name Test, that prints out the analize of naming in given UFO files.
+`-dev` - Developer Test (stuff for experimenting within package) ### add more info later.
+
 """.format(self.name)
 
 
 
         return txt
+
+
 
 
 
@@ -105,6 +116,9 @@ class Setup(object):
 
             elif option == "-n":
                 self.txt += self.test.name_Test()
+            elif option == "-dev":
+                test_playground = TestClass(self.test, self.fonts)
+                self.txt += test_playground.testString()
 
             else:
                 msg = "`command like:'{}' doesn't exist`".format(option)
@@ -252,14 +266,11 @@ class FolderTest(object):
         """
         styleNames = []
 
-        countError = 1
 
         for font in self.fonts:
             if font.info.familyName == familyName:
-                if (font.info.familyName == None):
-                    countError += 1
-
                 styleNames.append(font.info.styleName)
+
         return styleNames
 
     def name_Test(self):
@@ -316,14 +327,62 @@ class FolderTest(object):
             txt += "\n# Multiple fonts tests:\n TODO: \n - font names consistency across family\n - style names consisency across family\n - glyph names consistency across family\n - kerning pairs names consisency across family\n - kerning pairs names consisency across family\n"
 
         txt += "\n### Structure:\n"
-        txt += self.printStyleNamesTable()
+        txt += self.printStyleNames_Table()
+
+        txt += "---------------------------------------" ###TESTS
+        txt += "# TEST" ###TESTS
+        txt += "---------------------------------------" ###TESTS
+        txt += self.printNumberOfGlyphs_Table()
+
         return txt
 
-    def printStyleNamesTable(self):
+    def printNumberOfGlyphs_Table(self):
+        txt = ""
+        txt += "Number of glyphs in every font"
+
+        familyNames = self.getFamilyNames()
+
+        for familyName in familyNames:
+            rows = []
+            values = []
+            for font in self.fonts:
+                if font.info.familyName == familyName:
+                    if familyName == None:
+                        currFamilyName = "FAMILY_NONE"
+                    else:
+                        currFamilyName = familyName
+                    if font.info.styleName == None:
+                        currStaleName = "STYLE_NONE"
+                    else:
+                        currStaleName = font.info.styleName
+
+                    rows.append([currFamilyName +" "+ currStaleName, len(font.glyphOrder)])
+                    values.append(len(font.glyphOrder))
+            isEqualGlyphNum = logic.equalElements_check(values)
+
+            difference_comment = ""
+            if not isEqualGlyphNum:
+                rows.append(["Error", "*NOT EQUAL NUMBER ACROSS THE FAMILY*"])
+                difference_comment += "\n*CHARACTERSET DIFFERENCES:*\n\n*!!! here you have to find the system to write the difference berween charactersets*\n"
+
+
+            lineInfo = ["Family Name", "Glyphs Number"]
+            table = TableStringMD([x for x in rows], lineInfo=lineInfo)
+            txt += table.getTableListMD()
+            txt += difference_comment
+            txt += "\n"
+
+
+
+
+        return txt
+
+
+
+    def printStyleNames_Table(self):
         """
             prints in the command line lists of styles passed to the script
         """
-        txt = ""
         familyNames = self.getFamilyNames()
 
         rows = [self.getStyleNames(familyName) for familyName in familyNames]
@@ -333,5 +392,11 @@ class FolderTest(object):
         table = TableStringMD([x for x in rows], rowInfo=familyNames, lineInfo=lineInfo)
 
         table.rows[0][0] = "FAMILY NAME:"
-        txt += table.getTableListMD()
-        return txt
+        return table.getTableListMD()
+
+class TestClass(object):
+    def __init__(self, folderTest, fonts):
+        self.folderTest = FolderTest(fonts)
+
+    def testString(self):
+        return self.folderTest.printNumberOfGlyphs_Table()
