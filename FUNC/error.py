@@ -6,10 +6,10 @@ def fatal(expression, string):
     """
     if not expression:  # FATAL ERROR???
         from sys import exit
-        exit("\n [**FATAL ERROR**]> {}\n".format(string))
+        exit("\n [**FATAL ERROR**]> {}\n\n".format(string))
         # output("\n [**FATAL ERROR**]> {}\n".format(string))
 
-def warning(expression, string, countError=None):
+def warning(expression, string, MAIN_STRING, countError=None):
     """
         Error for command prompt
         Count=If count is needed, then you have to change countError to something else than None:
@@ -18,7 +18,8 @@ def warning(expression, string, countError=None):
     """
     if countError != None:
         if not expression:  # WARNING ERROR???
-            output("\n [**WARNING**]> {} > #{}\n".format(string, countError))
+            MAIN_STRING += "\n [**WARNING**]> {} > #{}\n\n".format(string, countError)
     else:
         if not expression:  # WARNING ERROR???
-            output("\n [**WARNING**]> {}\n".format(string))
+            MAIN_STRING += "\n [**WARNING**]> {}\n\n".format(string)
+    return MAIN_STRING
