@@ -1,5 +1,5 @@
 # UFO Consistency-tool
-Type production tool that suppose to help in analyze data inside ufo files.
+Type production tool that suppose to help in analyse data inside ufo files.
 It prints data in MarkDown syntax which provide clear, easy to read and edit text.
 It check the different information in two stages:
 it runs “Single font tests”, to print out any problems that occurs in single ufo
@@ -28,10 +28,10 @@ run:
 
 ---
 TODO:
-Work a bit on file structure
-Divide `DOCS/FamilyInfo.py` into separate files, so tests and application’s operations won’t be in one python file
-Learn more about packages :)
-DOCSRINGS
+ - Work a bit on file structure
+     - Divide `DOCS/FamilyInfo.py` into separate files, so tests and application’s operations won’t be in one python file
+     - Learn more about packages :)
+ - DOCSRINGS
 
 
 For now:
@@ -44,10 +44,10 @@ Single font tests:
 
 Multiple fonts tests:
  - font names consistency across family
- - style names consisency across family
+ - style names consistency across family
  - glyph names consistency across family
- - kerning pairs names consisency across family
- - kerning pairs names consisency across family\n
+ - kerning pairs names consistency across family
+ - kerning pairs names consistency across family\n
 
 
 ```
