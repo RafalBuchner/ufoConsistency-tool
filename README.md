@@ -18,7 +18,7 @@ If you want to test one UFO file, then you can pass it as an argument to the scr
 In terminal go to the UFO Consistency-tool directory
 run:
 
-`python UFO-Consistency-tool.py -n PATH_TO_MY_UFO_FILE/myUfoName.ufo`
+`python UFO-Consistency-tool.py -n PATH_TO_MY_UFO_FILE/myUfoName.ufo `
 
 ### Test more than one file:
 move copy of your ufo files to the new directory. Name the directory however you want.

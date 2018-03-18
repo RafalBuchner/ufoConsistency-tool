@@ -1,6 +1,8 @@
 diff-masters/
 one-masters/
 masters/
+__pycache__/
+.ropeproject
 test.py
 test.md
 *.pyc
