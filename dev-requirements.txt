@@ -1,2 +1,2 @@
 markdown>=2.6.11
-fontparts>=0.1.6
+fontparts>=0.1.2
