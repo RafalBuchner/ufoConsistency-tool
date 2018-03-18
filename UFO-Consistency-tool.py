@@ -1,21 +1,21 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 from misc.Output import execute_MAIN_STRING
 import os
 import sys
 from FUNC import error
-from fontParts.world import *
+
 from DOCS.FamilyInfo import *
 
 
-class Options(object):
-    ###IMPOLEMENT THIS!
-    """
-        impolements options to the script
-    """
-
-    def __init__(self):
-        pass
-
+# class Options(object):
+#     ###IMPOLEMENT THIS!
+#     """
+#         impolements options to the script
+#     """
+#
+#     def __init__(self):
+#         pass
 
 
 def getFilesFromMainArg(mianArg):
@@ -41,7 +41,6 @@ def getFilesFromMainArg(mianArg):
 
         return ufosNames
 
-
 def getFonts(mianArg):
     fontNames = getFilesFromMainArg(mainArg)
     fonts = []
@@ -57,17 +56,18 @@ def getFonts(mianArg):
 
 
 def main():
-    MAIN_STRING = ""
-    fonts = getFonts(mainArg)
-    MAIN_STRING = nameChecker(fonts,MAIN_STRING)
-
-
+    txt = ""
+    ###TESTS:
+    txt += u"_______TEST_______\n"
+    setup = Setup(commands, mainArg)
+    txt += setup.getTxt()
+    MAIN_STRING = txt
     execute_MAIN_STRING(MAIN_STRING)
-    # printStyleNames(fonts)
 
 
 if __name__ == "__main__":
     import sys
     commands = (sys.argv)[1:-1]
     mainArg = (sys.argv)[-1]
+    # mainArg = "diff-masters"
     main()
