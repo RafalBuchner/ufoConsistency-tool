@@ -8,6 +8,7 @@ after it, if user provided script with more than one ufo file it runs “Multipl
 ## Usage:
 Check if it works
 In terminal go to the UFO Consistency-tool directory, run:
+
 `python UFO-Consistency-tool.py -v`
 
 ### Test one file:
@@ -16,6 +17,7 @@ If you want to test one UFO file, then you can pass it as an argument to the scr
 
 In terminal go to the UFO Consistency-tool directory
 run:
+
 `python UFO-Consistency-tool.py -n PATH_TO_MY_UFO_FILE/myUfoName.ufo`
 
 ### Test more than one file:
@@ -23,6 +25,7 @@ move copy of your ufo files to the new directory. Name the directory however you
 
 In terminal go to the UFO Consistency-tool directory
 run:
+
 `python UFO-Consistency-tool.py -n PATH_TO_MY_DIRECORY/`
 
 
