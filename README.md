@@ -46,6 +46,8 @@ TODO:
 
 For now:
 Single font tests:
+ - TODO: CHECK DATA INTEGRITY WITHIN SINGLE UFO FILE
+   - IF NECESSARY FILES ARE AVAILABLE ETC
  - TODO check nameID 3 (copyright)
  - TODO check nameID 4 (full name, space separated, only ascii)
  - check nameID6
