@@ -1,3 +1,6 @@
+
+ [**FATAL ERROR**]> Didn't found Ufo for one of the commands
+
 ---------------------------------------
 # TEST
 ---------------------------------------

@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 import time
 import sys
+
 """
     It products output in terminal, which lines are printed with small delay
 """
 def output(string):
     if sys.version_info < (3,1,1):
+        reload(sys)
+        sys.setdefaultencoding('utf8')
         print(u"{}".format(string.encode('utf-8')))
+        # print(u"{}".format(string.decode('utf-8').strip()))
     else:
         print(string)
     time.sleep(.02)

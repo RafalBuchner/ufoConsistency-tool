@@ -94,10 +94,19 @@ class Setup(object):
         self.txt = ""
         self.mainArg = mainArg
         self.commands = commands
-        self.fonts = self.getFonts()
-        self.test = FolderTest(self.fonts)
+        self.test = None
+        self.fonts = None
+        commandsWithoutInput = ('-h','-hmd','-v')
+
+        if mainArg != None:
+            self.fonts = self.getFonts()
+            self.test = FolderTest(self.fonts)
+
+        error.fatal(not self.test == None and self.fonts == None, "Didn't found Ufo for one of the commands")
 
         self.commandsExecution()
+
+
 
 
 
@@ -138,6 +147,7 @@ class Setup(object):
             """
 
             ufosNames = []
+
             if mianArg.split('.')[-1] == "ufo":
 
                 error.fatal(not (os.path.isfile(mainArg)), "wrong file name")

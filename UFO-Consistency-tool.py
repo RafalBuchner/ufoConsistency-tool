@@ -15,7 +15,11 @@ def main():
 
 if __name__ == "__main__":
     import sys
-    commands = (sys.argv)[1:-1]
-    mainArg = (sys.argv)[-1]
+    if len(sys.argv) > 2 and sys.argv[-1][0] != "-":
+        commands = (sys.argv)[1:-1]
+        mainArg = (sys.argv)[-1]
+    else:
+        commands = (sys.argv)[1:]
+        mainArg = None
     # mainArg = "diff-masters"
     main()
