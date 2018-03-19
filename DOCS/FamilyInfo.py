@@ -329,16 +329,12 @@ class FolderTest(object):
         txt += "\n### Structure:\n"
         txt += self.printStyleNames_Table()
 
-        txt += "---------------------------------------" ###TESTS
-        txt += "# TEST" ###TESTS
-        txt += "---------------------------------------" ###TESTS
-        txt += self.printNumberOfGlyphs_Table()
 
         return txt
 
     def printNumberOfGlyphs_Table(self):
         txt = ""
-        txt += "Number of glyphs in every font"
+        txt += u"Number of glyphs in every font\n\n"
 
         familyNames = self.getFamilyNames()
 
@@ -348,11 +344,11 @@ class FolderTest(object):
             for font in self.fonts:
                 if font.info.familyName == familyName:
                     if familyName == None:
-                        currFamilyName = "FAMILY_NONE"
+                        currFamilyName = u"FAMILY_NONE"
                     else:
                         currFamilyName = familyName
                     if font.info.styleName == None:
-                        currStaleName = "STYLE_NONE"
+                        currStaleName = u"STYLE_NONE"
                     else:
                         currStaleName = font.info.styleName
 
@@ -360,25 +356,58 @@ class FolderTest(object):
                     values.append(len(font.glyphOrder))
             isEqualGlyphNum = logic.equalElements_check(values)
 
-            difference_comment = ""
             if not isEqualGlyphNum:
-                rows.append(["Error", "*NOT EQUAL NUMBER ACROSS THE FAMILY*"])
-                difference_comment += "\n*CHARACTERSET DIFFERENCES:*\n\n*!!! here you have to find the system to write the difference berween charactersets*\n"
+                rows.append([u"Error", "*NOT EQUAL NUMBER ACROSS THE FAMILY*"])
 
 
-            lineInfo = ["Family Name", "Glyphs Number"]
+
+            lineInfo = [u"Family Name", "Glyphs Number"]
             table = TableStringMD([x for x in rows], lineInfo=lineInfo)
             txt += table.getTableListMD()
-            txt += difference_comment
-            txt += "\n"
-
-
-
-
+            txt += u"\n"
         return txt
 
+    def differenceCharacterSet_test(self):
+        txt = ""
+        txt += "---------------------------------------\n"
+        txt += "## Differences in Character Set\n"
+        txt += "---------------------------------------\n"
+        familyNames = self.getFamilyNames()
+        for familyName in familyNames:
+            glyphOrder_lengths = []
+            for font in self.fonts:
+                if font.info.familyName == familyName:
+                    glyphOrder_lengths.append(len(font.glyphOrder))
 
 
+            isEqualGlyphNum = logic.equalElements_check(glyphOrder_lengths)
+            # print(familyName)
+            # print(glyphOrder_lengths)
+            txt += "### FAMILY **>{}<**\n".format(str(familyName).upper())
+            if not isEqualGlyphNum:
+
+                for font in self.fonts:
+                    if font.info.familyName == familyName:
+
+                        for otherFont in self.fonts:
+                            if otherFont.info.familyName == familyName:
+                                txt += " - DIFFERENCES BETWEEN FONT **{}** AND **{}**:\n".format(
+                                                                                                    str(font.info.styleName).upper(),
+                                                                                                    str(otherFont.info.styleName).upper())
+                                difference = list(set(font.glyphOrder) - set(otherFont.glyphOrder))
+                                txt += "         "
+                                if len(difference) > 1:
+                                    for glyphname in difference:
+                                        comma = ", "
+                                        if difference.index(glyphname)+1 == len(difference):
+                                            comma = ""
+                                        txt += glyphname + comma
+                                else:
+                                    txt += "-"
+                                txt += "\n"
+
+            txt += "\n"
+        return txt
     def printStyleNames_Table(self):
         """
             prints in the command line lists of styles passed to the script
@@ -399,4 +428,11 @@ class TestClass(object):
         self.folderTest = FolderTest(fonts)
 
     def testString(self):
-        return self.folderTest.printNumberOfGlyphs_Table()
+        txt = ''
+        txt += "---------------------------------------\n" ###TESTS
+        txt += "# TEST\n" ###TESTS
+        txt += "---------------------------------------\n" ###TESTS
+        txt += self.folderTest.printStyleNames_Table()
+        # txt += self.folderTest.printNumberOfGlyphs_Table()
+        txt += self.folderTest.differenceCharacterSet_test()
+        return txt
