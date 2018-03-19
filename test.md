@@ -4,14 +4,14 @@
 ---------------------------------------
 # TEST
 ---------------------------------------
-|        FAMILY NAME: |          Source Code |               Ariiba | Source Sans Variable |               ZigZag |                 None |                Gamer | 
+|        FAMILY NAME: |          Source Code |               Ariiba | Source Sans Variable |               ZigZag |                 None |                Gamer |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|            style #0 |         Black Italic |              Regular |               Italic |             bold_con |                 None |                 thin | 
-|            style #1 |    ExtraLight Italic |                      |                Roman |              reg_con |                      |                  400 | 
-|            style #2 |              Regular |                      |                Black |              bold_ex |                      |                thick | 
-|            style #3 |               Italic |                      |         Black Italic |               reg_ex |                      |               medium | 
-|            style #4 |           ExtraLight |                      |                      |                      |                      |                  200 | 
-|            style #5 |                Black |                      |                      |                      |                      |                  800 | 
+|            style #0 |         Black Italic |              Regular |               Italic |             bold_con |                 None |                 thin |
+|            style #1 |    ExtraLight Italic |                      |                Roman |              reg_con |                      |                  400 |
+|            style #2 |              Regular |                      |                Black |              bold_ex |                      |                thick |
+|            style #3 |               Italic |                      |         Black Italic |               reg_ex |                      |               medium |
+|            style #4 |           ExtraLight |                      |                      |                      |                      |                  200 |
+|            style #5 |                Black |                      |                      |                      |                      |                  800 |
 ---------------------------------------
 ## Differences in Character Set
 ---------------------------------------
@@ -162,4 +162,3 @@
 ### FAMILY **>NONE<**
 
 ### FAMILY **>GAMER<**
-

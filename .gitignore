@@ -4,6 +4,5 @@ one-masters/
 masters/
 __pycache__/
 test.py
-test.md
+*.md
 *.pyc
-.textClipping
