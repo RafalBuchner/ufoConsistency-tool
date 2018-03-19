@@ -60,6 +60,11 @@ Multiple fonts tests:
  - kerning pairs names consistency across family\n
 
 
+### this tool depends on following python packages:
+```markdown
+fontparts
+```
+
 ```
 version: 0.001
 name: UFO Consistency Tool
